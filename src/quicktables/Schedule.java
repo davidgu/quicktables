@@ -27,4 +27,8 @@ public class Schedule implements Serializable{
         this.day[6]=day7;
         this.day[7]=day8;
     }
+    
+    Day getDay(int dayNumber){
+        return this.day[dayNumber];
+    }
 }

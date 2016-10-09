@@ -7,27 +7,47 @@ package quicktables;
 
 import java.util.*;
 import java.io.*;
+import javax.swing.JTextArea;
 /**
  *
  * @author David
  */
 public class UI extends javax.swing.JFrame {
 
+    Schedule schedule;
+            
     /**
      * Creates new form NewJFrame
      */
     public UI() {
         initComponents();
     }
-
+    
     private void loadData(){
         
         try{
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream("schedule.dat"));
-        }
-        catch(Exception e){
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("timetable.ser"));
+            schedule = (Schedule)in.readObject();
+            
+            schedule.getDay(1);
+            displayInfo(Day1Homeroom, schedule.getDay(1), 1);
             
         }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
+    private void displayInfo(JTextArea displayBox, Day day, int period){
+        Course course = day.getCourse(period);
+        displayBox.setText(null);
+        displayBox.append(course.getCourseCode());
+        displayBox.append("\n");
+        displayBox.append(course.getCourseName());
+        displayBox.append("\n");
+        displayBox.append(course.getRoom());
+        displayBox.append("\n");
+        displayBox.append(course.getTeacher());
     }
     
     /**
@@ -702,6 +722,11 @@ public class UI extends javax.swing.JFrame {
         jScrollPane40.setViewportView(Day8Period5);
 
         btnLoad.setText("Load");
+        btnLoad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -946,7 +971,6 @@ public class UI extends javax.swing.JFrame {
                         .addComponent(lblPeriod2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblBreak1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jScrollPane48, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1000,6 +1024,11 @@ public class UI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadActionPerformed
+        // TODO add your handling code here:
+        loadData();
+    }//GEN-LAST:event_btnLoadActionPerformed
 
     /**
      * @param args the command line arguments
