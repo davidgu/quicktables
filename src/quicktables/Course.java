@@ -12,7 +12,7 @@ import java.io.*;
  */
 public class Course implements Serializable{
     
-    private String courseCode;
+    private String courseCode; 
     private String courseName;
     private String room;
     private String teacher;
