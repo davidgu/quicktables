@@ -4,32 +4,39 @@
  * and open the template in the editor.
  */
 package quicktables;
+import java.io.*;
 
 /**
  *
  * @author David
  */
-public class Course {
+public class Course implements Serializable{
     
-    private String course;
+    private String courseCode;
+    private String courseName;
     private String room;
     private String teacher;
     
-    Course(String course, String room, String teacher){
-        this.course = course;
+    Course(String courseCode, String courseName, String room, String teacher){
+        this.courseCode = courseCode;
+        this.courseName = courseName;
         this.room = room;
         this.teacher = teacher;
     }
     
-    String getCourse(){
-        return course;
+    String getCourseCode(){
+        return courseCode;
+    }
+    
+    String getCourseName(){
+        return courseName;
     }
     
     String getRoom(){
-        return course;
+        return courseCode;
     }
     
     String getTeacher(){
-        return course;
+        return courseCode;
     }
 }
