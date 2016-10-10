@@ -181,6 +181,7 @@ public class UI extends javax.swing.JFrame {
         jScrollPane40 = new javax.swing.JScrollPane();
         Day8Period5 = new javax.swing.JTextArea();
         btnLoad = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -728,6 +729,13 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -735,8 +743,16 @@ public class UI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblBreak1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(247, 247, 247))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnNameAndGrade)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCreate))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPeriod1)
@@ -881,14 +897,7 @@ public class UI extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(lblDay8))))
                                     .addComponent(btnLoad))))
-                        .addGap(33, 33, 33))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnNameAndGrade)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblBreak1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(247, 247, 247))))
+                        .addGap(33, 33, 33))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblBreak2, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -905,7 +914,9 @@ public class UI extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(btnLoad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnNameAndGrade)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnNameAndGrade)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1030,6 +1041,11 @@ public class UI extends javax.swing.JFrame {
         loadData();
     }//GEN-LAST:event_btnLoadActionPerformed
 
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        CreateUI();
+    }//GEN-LAST:event_btnCreateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1115,6 +1131,7 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JTextArea Day8Period3;
     private javax.swing.JTextArea Day8Period4;
     private javax.swing.JTextArea Day8Period5;
+    private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnLoad;
     private javax.swing.JLabel btnNameAndGrade;
     private javax.swing.Box.Filler filler1;
