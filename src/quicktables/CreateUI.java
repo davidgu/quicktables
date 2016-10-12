@@ -33,6 +33,17 @@ public class CreateUI extends javax.swing.JFrame {
         lstPeriod5.setModel(model);
         
     }
+    
+    public void initialize(){   //Creates window. Public so it can be called from main class.
+        initComponents();   
+        lstHomeroom.setModel(model);    //Set JLists to listmodel so they all display the same content
+        lstPeriod1.setModel(model);
+        lstPeriod2.setModel(model);
+        lstPeriod3.setModel(model);
+        lstPeriod4.setModel(model);
+        lstPeriod5.setModel(model);
+        setVisible(true);
+    }
 
     private void updateText(){
         model.removeAllElements();  //Clear current DefaultListModel
@@ -105,7 +116,7 @@ public class CreateUI extends javax.swing.JFrame {
         btnCreateDay = new javax.swing.JButton();
         btnCreateTimetable = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNameAndGrade.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -272,7 +283,7 @@ public class CreateUI extends javax.swing.JFrame {
                 btnCreateDayActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCreateDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
+        getContentPane().add(btnCreateDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, -1));
 
         btnCreateTimetable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnCreateTimetable.setText("Generate Timetable");
