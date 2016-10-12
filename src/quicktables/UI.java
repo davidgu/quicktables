@@ -1043,7 +1043,8 @@ public class UI extends javax.swing.JFrame {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        CreateUI();
+        CreateUI ui = new CreateUI();
+        ui.initialize();
     }//GEN-LAST:event_btnCreateActionPerformed
 
     /**
